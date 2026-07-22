@@ -8,12 +8,6 @@
       "matchPackagePrefixes": ["@effect/", "effect"],
       "groupName": "effect-ecosystem",
       "automerge": false
-    },
-    {
-      "description": "Group TypeScript 7 native and 6 compat packages to stay in sync",
-      "matchPackageNames": ["@typescript/native", "typescript"],
-      "groupName": "typescript",
-      "automerge": false
     }
   ]
 }

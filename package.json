@@ -17,11 +17,8 @@
   },
   "devDependencies": {
     "@effect/eslint-plugin": "^0.3.2",
-    "@effect/tsgo": "^0.24.2",
     "@types/node": "^22",
-    "@typescript/native": "npm:typescript@^7.0.2",
     "eslint": "^10.7.0",
-    "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-perfectionist": "^5.10.0",
     "fallow": "^3.7.1",
     "husky": "^9.1.7",
