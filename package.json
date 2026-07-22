@@ -9,6 +9,7 @@
   },
   "devDependencies": {
     "@types/node": "^22",
+    "fallow": "^3.7.1",
     "tsdown": "^0.22.13",
     "tsx": "^4.23.1",
     "typescript": "^5"
