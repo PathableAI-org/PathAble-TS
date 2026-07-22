@@ -1,0 +1,13 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "automerge": true,
+  "packageRules": [
+    {
+      "description": "Group Effect ecosystem dependencies and require manual review",
+      "matchPackagePrefixes": ["@effect/", "effect"],
+      "groupName": "effect-ecosystem",
+      "automerge": false
+    }
+  ]
+}
