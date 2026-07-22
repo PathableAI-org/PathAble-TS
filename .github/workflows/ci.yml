@@ -12,14 +12,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: pnpm/action-setup@v4
-        with:
-          version: ${{ secrets.PNPM_VERSION || '11.15.1' }}
-
       - uses: actions/setup-node@v4
         with:
           node-version: 26.x
           cache: pnpm
+
+      - run: corepack enable
 
       - run: pnpm install --frozen-lockfile
 
