@@ -14,7 +14,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: stable
+          node-version: node
           cache: pnpm
 
       - run: corepack enable
