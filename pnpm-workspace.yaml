@@ -2,3 +2,5 @@ packages:
   - packages/*
 allowBuilds:
   esbuild: true
+minimumReleaseAgeExclude:
+  - '@effect/language-service@0.87.1'
