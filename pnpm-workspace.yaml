@@ -1,7 +1,9 @@
 packages:
   - packages/*
 allowBuilds:
+  bun: true
   dprint: true
   esbuild: true
+  msgpackr-extract: true
 minimumReleaseAgeExclude:
   - '@effect/language-service@0.87.1'
