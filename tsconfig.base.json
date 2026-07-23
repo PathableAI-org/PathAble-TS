@@ -15,25 +15,32 @@
     "plugins": [
       {
         "name": "@effect/language-service",
-        "diagnostics": true,
-        "refactors": true,
-        "completions": true,
-        "quickinfo": true,
-        "includeSuggestionsInTsc": true,
-        "overrides": [
-          {
-            "include": ["src/**/*.ts"],
-            "options": {
-              "diagnosticSeverity": {
-                "floatingEffect": "error",
-                "missingEffectContext": "error",
-                "missingEffectError": "error",
-                "missingLayerContext": "error"
-              }
-            }
-          }
-        ]
+        "diagnosticSeverity": {
+          "asyncFunction": "warning",
+          "cryptoRandomUUID": "warning",
+          "cryptoRandomUUIDInEffect": "warning",
+          "extendsNativeError": "warning",
+          "globalConsole": "warning",
+          "globalConsoleInEffect": "warning",
+          "globalDate": "warning",
+          "globalDateInEffect": "warning",
+          "globalFetch": "warning",
+          "globalFetchInEffect": "warning",
+          "globalRandom": "warning",
+          "globalRandomInEffect": "warning",
+          "globalTimers": "warning",
+          "globalTimersInEffect": "warning",
+          "instanceOfSchema": "warning",
+          "newPromise": "warning",
+          "nodeBuiltinImport": "warning",
+          "preferSchemaOverJson": "warning",
+          "processEnv": "warning",
+          "processEnvInEffect": "warning",
+          "unsafeEffectTypeAssertion": "warning"
+        }
       }
+
     ]
-  }
+  },
+"$schema": "./node_modules/@effect/tsgo/schema.json"
 }
