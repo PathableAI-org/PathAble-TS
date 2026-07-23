@@ -254,7 +254,7 @@ importers:
         specifier: ^8.65.0
         version: 8.65.0(eslint@10.7.0)(typescript@6.0.3)
 
-  packages/hello-world: {}
+  packages/hipaa: {}
 
 packages:
 
