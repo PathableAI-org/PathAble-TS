@@ -39,8 +39,7 @@
           "unsafeEffectTypeAssertion": "warning"
         }
       }
-
     ]
   },
-"$schema": "./node_modules/@effect/tsgo/schema.json"
+  "$schema": "./node_modules/@effect/tsgo/schema.json"
 }
