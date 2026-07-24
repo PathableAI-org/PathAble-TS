@@ -15,6 +15,15 @@
   },
   "scripts": {
     "build": "tsdown",
-    "check": "tsc -b tsconfig.json"
+    "check": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "devDependencies": {
+    "@effect/vitest": "^0.30.0",
+    "vitest": "^4.1.10"
+  },
+  "dependencies": {
+    "effect": "^3.22.0"
   }
 }

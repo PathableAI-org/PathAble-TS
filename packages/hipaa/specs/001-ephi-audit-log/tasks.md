@@ -27,10 +27,10 @@
 
 **Purpose**: Install test dependencies, create vitest config, and add test scripts to package.json
 
-- [ ] T001 Install `vitest` and `@effect/vitest` as devDependencies in `packages/hipaa/package.json`
-- [ ] T002 [P] Create `packages/hipaa/vitest.config.ts` with TypeScript support and `src/` + `test/` include paths
-- [ ] T003 [P] Add `"test": "vitest run"` and `"test:watch": "vitest"` scripts to `packages/hipaa/package.json`
-- [ ] T004 Update `packages/hipaa/tsconfig.json` to include `test/` directory for type-checking coverage
+- [x] T001 Install `vitest` and `@effect/vitest` as devDependencies in `packages/hipaa/package.json`
+- [x] T002 [P] Create `packages/hipaa/vitest.config.ts` with TypeScript support and `src/` + `test/` include paths
+- [x] T003 [P] Add `"test": "vitest run"` and `"test:watch": "vitest"` scripts to `packages/hipaa/package.json`
+- [x] T004 Update `packages/hipaa/tsconfig.json` to include `test/` directory for type-checking coverage
 
 ---
 
@@ -42,9 +42,9 @@
 
 ### Implementation for User Story 1
 
-- [ ] T005 [US1] Create `packages/hipaa/src/audit-log.ts` with `withEphiAudit` function that uses `Effect.matchEffect` to log attempt before execution, succeeded on success, failed on failure, preserving the original value/error
-- [ ] T006 [US1] Export `withEphiAudit` from `packages/hipaa/src/index.ts`
-- [ ] T007 [US1] Create `packages/hipaa/test/audit-log.test.ts` with tests covering:
+- [x] T005 [US1] Create `packages/hipaa/src/audit-log.ts` with `withEphiAudit` function that uses `Effect.matchEffect` to log attempt before execution, succeeded on success, failed on failure, preserving the original value/error
+- [x] T006 [US1] Export `withEphiAudit` from `packages/hipaa/src/index.ts`
+- [x] T007 [US1] Create `packages/hipaa/test/audit-log.test.ts` with tests covering:
   - Success path: Effect.succeed emits attempt + succeeded logs, returns original value
   - Failure path: Effect.fail emits attempt + failed logs, propagates original error
   - Lazy evaluation: wrapping without running emits no logs
@@ -62,8 +62,8 @@
 
 ### Verification for User Story 2
 
-- [ ] T008 [US2] Run `pnpm --filter @pathable/hipaa test -- --run` and confirm all tests pass
-- [ ] T009 [US2] Run `pnpm --filter @pathable/hipaa check` and confirm TypeScript passes
+- [x] T008 [US2] Run `pnpm --filter @pathable/hipaa test -- --run` and confirm all tests pass
+- [x] T009 [US2] Run `pnpm --filter @pathable/hipaa check` and confirm TypeScript passes
 
 **Checkpoint**: The package has a working test suite runnable via `pnpm test` with full TypeScript coverage.
 
@@ -73,8 +73,8 @@
 
 **Purpose**: End-to-end verification and build validation
 
-- [ ] T010 Run `pnpm --filter @pathable/hipaa build` and confirm the package builds successfully
-- [ ] T011 Run quickstart.md validation scenarios to confirm all acceptance criteria are met
+- [x] T010 Run `pnpm --filter @pathable/hipaa build` and confirm the package builds successfully
+- [x] T011 Run quickstart.md validation scenarios to confirm all acceptance criteria are met
 
 ---
 
