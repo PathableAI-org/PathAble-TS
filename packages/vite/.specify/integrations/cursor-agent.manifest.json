@@ -1,0 +1,23 @@
+{
+  "integration": "cursor-agent",
+  "version": "0.14.3.dev0",
+  "installed_at": "2026-08-01T21:59:36.263881+00:00",
+  "files": {
+    ".cursor/skills/speckit-analyze/SKILL.md": "2e89ffed73764eb9d3ee2d9fba7e245a5e73229b809ddec52409ca74c44e585d",
+    ".cursor/skills/speckit-clarify/SKILL.md": "5095627c89a249d402ad2d0fad425ea0c0bd5e8559e9d6f5b682dea4f513ed54",
+    ".cursor/skills/speckit-constitution/SKILL.md": "0fc8ce681d3a148ae145c910ffd64e0eff455657187c321635f05d52db3322b1",
+    ".cursor/skills/speckit-implement/SKILL.md": "248c2fa4be8a969ea771c88c38546d6735d7d4994bbe698bbabd18f53f88f0cd",
+    ".cursor/skills/speckit-converge/SKILL.md": "1355b748919c7750cc87be94534192e5ff227229c14cbd34ca993a5f977a4ce2",
+    ".cursor/skills/speckit-plan/SKILL.md": "c5522489fd177028e02ff4f1588a06bde811a0146cdc1d3495812694d6ea41b3",
+    ".cursor/skills/speckit-checklist/SKILL.md": "4eb7e030d04014e6bbf5177f84aeef19b11adfa8470a14dd18506f65c7cf9dcb",
+    ".cursor/skills/speckit-specify/SKILL.md": "fc1a68dceba9fa9317a9d7dabda4629995628dc6dcc7c80b313190141c1dee79",
+    ".cursor/skills/speckit-tasks/SKILL.md": "2dceed4345af65dbc6625157be8817dc35f2b0943b5896815ef1bc4d3421efba",
+    ".cursor/skills/speckit-taskstoissues/SKILL.md": "2c00fdc774cb9b435ea8566c7efa8b208568d533d57529e61c35f18aa52d6c67",
+    ".cursor/skills/speckit-git-commit/SKILL.md": "06d33253f127e988b943f78e4db0229b010b444b50ec15620b8882ceb78ccd76",
+    ".cursor/skills/speckit-git-feature/SKILL.md": "ad40e9bbc6b034776cbf1c2e19a87d758eb9e6a6e680e99b844589f6fb9e2c95",
+    ".cursor/skills/speckit-git-initialize/SKILL.md": "6d9c04adf4479f8645fea57938bf692ba1f1cf08de5054d598593c2782a18c0d",
+    ".cursor/skills/speckit-git-remote/SKILL.md": "045d34977a70cae585b8bc0adbfd378374498f1a6c59c77615923e64f8d1b3f0",
+    ".cursor/skills/speckit-git-validate/SKILL.md": "8bff205ad2547b7905b0ef33a60b89254ccf3df784f178b9052e8f984f175f1f",
+    ".cursor/skills/speckit-agent-context-update/SKILL.md": "559eca8af6e7d32ea9a04b317ac19b3764a8bd39807d20dadefc610e8bbab20f"
+  }
+}

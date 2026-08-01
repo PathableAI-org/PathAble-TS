@@ -1,9 +1,10 @@
 packages:
   - packages/*
 allowBuilds:
+  "@parcel/watcher": true
   bun: true
   dprint: true
   esbuild: true
   msgpackr-extract: true
 minimumReleaseAgeExclude:
-  - '@effect/language-service@0.87.1'
+  - "@effect/language-service@0.87.1"

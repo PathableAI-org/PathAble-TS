@@ -3,4 +3,4 @@
  *
  * @since 0.0.0
  */
-export {}
+export const name = "@pathable/vite" as const

@@ -14,8 +14,13 @@
       "require": "./dist/index.cjs"
     }
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsdown",
-    "check": "tsc -b tsconfig.json"
+    "check": "tsc -b tsconfig.json",
+    "example": "tsx --tsconfig example/tsconfig.json example/index.ts",
+    "example:check": "tsc -p example/tsconfig.json"
   }
 }
