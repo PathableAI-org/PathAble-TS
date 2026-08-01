@@ -1,1 +1,10 @@
 pnpm exec lint-staged
+
+# Fallow: graph-level gate on changed files vs base branch (new findings only by default)
+UPSTREAM="$(git rev-parse --abbrev-ref --symbolic-full-name '@{upstream}' 2>/dev/null || true)"
+if [ -n "$UPSTREAM" ]; then
+  BASE="$(git merge-base "$UPSTREAM" HEAD 2>/dev/null || echo "$UPSTREAM")"
+else
+  BASE="main"
+fi
+pnpm exec fallow audit --base "$BASE" --quiet --gate-marker pre-commit

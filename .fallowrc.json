@@ -16,6 +16,9 @@
   "ignorePatterns": [
     ".github/*"
   ],
+  "ignoreDependencies": [
+    "bun"
+  ],
   "duplicates": {
     "minOccurrences": 3
   },
