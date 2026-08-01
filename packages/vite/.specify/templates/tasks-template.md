@@ -21,10 +21,9 @@ description: "Task list template for feature implementation"
 
 ## Path Conventions
 
-- **Single project**: `src/`, `tests/` at repository root
-- **Web app**: `backend/src/`, `frontend/src/`
-- **Mobile**: `api/src/`, `ios/src/` or `android/src/`
-- Paths shown below assume single project - adjust based on plan.md structure
+- **Library (DEFAULT for @pathable/vite)**: `src/`, `tests/`, `example/` under `packages/vite`
+- Prefer task paths under `src/middleware/`, `src/build/`, `src/serve/` when applicable
+- Paths shown below assume the library layout - adjust based on plan.md structure
 
 <!--
   ============================================================================
@@ -63,12 +62,13 @@ description: "Task list template for feature implementation"
 
 Examples of foundational tasks (adjust based on your project):
 
-- [ ] T004 Setup database schema and migrations framework
-- [ ] T005 [P] Implement authentication/authorization framework
-- [ ] T006 [P] Setup API routing and middleware structure
-- [ ] T007 Create base models/entities that all stories depend on
-- [ ] T008 Configure error handling and logging infrastructure
-- [ ] T009 Setup environment configuration management
+- [ ] T004 Define public Effect Layer / platform HTTP types for Vite integration (HttpServer, HttpApp, HttpApi, or other as fit)
+- [ ] T005 [P] Wire Vite config/plugin loading helpers (wrap Vite; do not fork)
+- [ ] T006 [P] Establish SSR entry + client entry conventions used by build and example
+- [ ] T007 Create shared error types for integration and build failures
+- [ ] T008 Configure package exports / dual ESM+CJS surface as needed
+- [ ] T009 Declare all `effect` / `@effect/*` packages as peerDependencies (devDependencies OK for local check/example; never dependencies)
+- [ ] T010 Setup example app skeleton that exercises both dev integration and SSR build
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 
@@ -151,11 +151,12 @@ Examples of foundational tasks (adjust based on your project):
 
 **Purpose**: Improvements that affect multiple user stories
 
-- [ ] TXXX [P] Documentation updates in docs/
-- [ ] TXXX Code cleanup and refactoring
-- [ ] TXXX Performance optimization across all stories
-- [ ] TXXX [P] Additional unit tests (if requested) in tests/unit/
-- [ ] TXXX Security hardening
+- [ ] TXXX [P] Documentation / example updates (`example/` is living docs +
+      manual test project; not shipped in dist; evolve toward multi-page React SSR)
+- [ ] TXXX Code cleanup and refactoring (keep public surface minimal)
+- [ ] TXXX Dev/prod parity verification (same app path under platform integration + SSR build)
+- [ ] TXXX [P] Additional unit/integration tests (if requested) in tests/
+- [ ] TXXX Changeset for public API / CLI contract changes
 - [ ] TXXX Run quickstart.md validation
 
 ---

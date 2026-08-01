@@ -18,29 +18,50 @@
   the iteration process.
 -->
 
-**Language/Version**: [e.g., Python 3.11, Swift 5.9, Rust 1.75 or NEEDS CLARIFICATION]
+**Language/Version**: TypeScript (monorepo `typescript` pin) or NEEDS CLARIFICATION
 
-**Primary Dependencies**: [e.g., FastAPI, UIKit, LLVM or NEEDS CLARIFICATION]
+**Primary Dependencies**: Effect, `@effect/platform`, Vite (and SSR plugins as needed) or NEEDS CLARIFICATION
 
-**Storage**: [if applicable, e.g., PostgreSQL, CoreData, files or N/A]
+**Storage**: N/A (library; no persistence) or NEEDS CLARIFICATION
 
-**Testing**: [e.g., pytest, XCTest, cargo test or NEEDS CLARIFICATION]
+**Testing**: Package/example typecheck + integration tests against `@effect/platform` HTTP integration / SSR build as applicable or NEEDS CLARIFICATION
 
-**Target Platform**: [e.g., Linux server, iOS 15+, WASM or NEEDS CLARIFICATION]
+**Target Platform**: Node.js (`@effect/platform` HTTP host) + browser client assets via Vite or NEEDS CLARIFICATION
 
-**Project Type**: [e.g., library/cli/web-service/mobile-app/compiler/desktop-app or NEEDS CLARIFICATION]
+**Project Type**: library (`@pathable/vite`) — Vite ↔ `@effect/platform` integration + SSR build tooling
 
-**Performance Goals**: [domain-specific, e.g., 1000 req/s, 10k lines/sec, 60 fps or NEEDS CLARIFICATION]
+**Performance Goals**: [domain-specific, e.g., HMR latency, SSR render p95] or NEEDS CLARIFICATION
 
-**Constraints**: [domain-specific, e.g., <200ms p95, <100MB memory, offline-capable or NEEDS CLARIFICATION]
+**Constraints**: MUST compose with `@effect/platform` (HttpServer, HttpApp, HttpApi, or other fitting types); MUST NOT require a parallel non-Effect HTTP process for Vite; MUST preserve Vite as bundler; MUST keep public surface minimal or NEEDS CLARIFICATION
 
-**Scale/Scope**: [domain-specific, e.g., 10k users, 1M LOC, 50 screens or NEEDS CLARIFICATION]
+**Scale/Scope**: Thin Next.js-inspired layer (dev Vite integration + production SSR build/serve), not full Next.js parity or NEEDS CLARIFICATION
 
 ## Constitution Check
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+Verify against `.specify/memory/constitution.md` (@pathable/vite v1.3.0):
+
+- [ ] **I. Effect Platform Integration**: Design exposes Vite via `@effect/platform`
+      types that fit the feature (`HttpServer`, `HttpApp`, `HttpApi`, etc.) — not a
+      standalone HTTP server that bypasses the Effect request pipeline. HttpServer
+      preference is allowed but not required.
+- [ ] **II. Dev/Prod Parity**: Application render/route logic shares one path;
+      env-specific wiring lives in package adapters.
+- [ ] **III. Vite as the Build Engine**: Plan wraps Vite APIs/config/plugins; does
+      not reimplement transforms, HMR, or asset graphs.
+- [ ] **IV. SSR Production Builds**: If the feature touches serving or packaging,
+      it includes (or explicitly defers with justification) a production SSR build
+      path that fails loudly on unresolved SSR modules.
+- [ ] **V. Effect Idioms & Minimal Surface**: Public APIs use Effect idioms;
+      scope stays limited to `@effect/platform`↔Vite integration and SSR builds
+      (YAGNI).
+- [ ] **Peer dependencies**: Any `effect` / `@effect/*` package used by this
+      library is declared as a `peerDependency` (optionally also
+      `devDependency`) and MUST NOT appear under `dependencies`.
+- [ ] **Workflow**: Changeset impact noted for public API; `example/` kept
+      consistent when integration/build contracts change; `example/` remains
+      version-controlled and excluded from package dist.
 
 ## Project Structure
 
@@ -65,43 +86,22 @@ specs/[###-feature]/
 -->
 
 ```text
-# [REMOVE IF UNUSED] Option 1: Single project (DEFAULT)
+# DEFAULT: library package (packages/vite)
 src/
-├── models/
-├── services/
-├── cli/
-└── lib/
+├── middleware/          # `@effect/platform` ↔ Vite dev integration
+├── build/               # SSR production build orchestration
+├── serve/               # Production asset + SSR serve helpers
+└── index.ts             # Public exports
 
+example/                 # Living docs + manual test app (VCS only; not in dist)
+                         # Extends with each feature; toward multi-page React SSR
 tests/
-├── contract/
-├── integration/
+├── integration/         # platform HTTP + Vite integration / SSR build
 └── unit/
-
-# [REMOVE IF UNUSED] Option 2: Web application (when "frontend" + "backend" detected)
-backend/
-├── src/
-│   ├── models/
-│   ├── services/
-│   └── api/
-└── tests/
-
-frontend/
-├── src/
-│   ├── components/
-│   ├── pages/
-│   └── services/
-└── tests/
-
-# [REMOVE IF UNUSED] Option 3: Mobile + API (when "iOS/Android" detected)
-api/
-└── [same as backend above]
-
-ios/ or android/
-└── [platform-specific structure: feature modules, UI flows, platform tests]
 ```
 
-**Structure Decision**: [Document the selected structure and reference the real
-directories captured above]
+**Structure Decision**: Prefer the library layout above. Document any deviation
+and justify against Constitution V (minimal surface).
 
 ## Complexity Tracking
 
