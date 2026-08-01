@@ -1,6 +1,6 @@
 import * as effectEslint from "@effect/eslint-plugin"
-import { defineConfig } from "eslint/config"
 import perfectionist from "eslint-plugin-perfectionist"
+import { defineConfig } from "eslint/config"
 import tseslint from "typescript-eslint"
 
 const config = defineConfig({
@@ -26,12 +26,13 @@ const config = defineConfig({
 
 export default [
   {
-ignores: [
-    "**/dist",
-    "**/build",
-    "**/docs",
-    "**/*.md"
-  ]
+    ignores: [
+      "**/dist",
+      "**/build",
+      "**/docs",
+      "**/*.md",
+      "**/tsdown.config.ts"
+    ]
   },
   ...config,
   ...effectEslint.configs.dprint,
@@ -47,8 +48,7 @@ ignores: [
       "prefer-destructuring": "off",
 
       "no-restricted-syntax": ["error", {
-        selector:
-          "CallExpression[callee.property.name='push'] > SpreadElement.arguments",
+        selector: "CallExpression[callee.property.name='push'] > SpreadElement.arguments",
         message: "Do not use spread arguments in Array.push"
       }],
 

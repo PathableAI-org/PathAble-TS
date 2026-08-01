@@ -1,0 +1,21 @@
+{
+  "name": "@pathable/vite",
+  "version": "0.0.0",
+  "description": "Tools to integrate Vite with Effect HttpServer",
+  "type": "module",
+  "license": "Unlicense",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "scripts": {
+    "build": "tsdown",
+    "check": "tsc -b tsconfig.json"
+  }
+}
