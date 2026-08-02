@@ -1,12 +1,13 @@
 {
   "extends": "../../../tsconfig.base.json",
-  "include": ["index.ts"],
+  "include": ["index.ts", "vite.config.ts"],
   "compilerOptions": {
     "noEmit": true,
     "rootDir": "..",
+    "types": ["node"],
     "paths": {
       "@pathable/vite": ["../src/index.ts"],
-      "@pathable/vite/*": ["../src/*.ts"]
+      "@pathable/vite/*": ["../src/*"]
     }
   }
 }
