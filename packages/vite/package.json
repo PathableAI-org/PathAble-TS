@@ -22,5 +22,20 @@
     "check": "tsc -b tsconfig.json",
     "example": "tsx --tsconfig example/tsconfig.json example/index.ts",
     "example:check": "tsc -p example/tsconfig.json"
+  },
+  "peerDependencies": {
+    "@effect/platform-node": "^4.0.0-beta.59",
+    "effect": "^4.0.0-beta.59",
+    "vite": "^6.0.0 || ^7.0.0 || ^8.0.0"
+  },
+  "devDependencies": {
+    "@effect/platform-node": "4.0.0-beta.102",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.5",
+    "effect": "4.0.0-beta.102",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "vite": "^8.2.0"
   }
 }

@@ -11,10 +11,14 @@
   },
   "dynamicallyLoaded": [
     "**/tsdown.config.ts",
-    "tsdown.base.config.mjs"
+    "tsdown.base.config.mjs",
+    "packages/vite/example/src/entry-client.tsx",
+    "packages/vite/example/src/entry-server.tsx",
+    "packages/vite/example/vite.config.ts"
   ],
   "ignorePatterns": [
-    ".github/*"
+    ".github/*",
+    "packages/vite/example/public/**"
   ],
   "ignoreDependencies": [
     "bun"
