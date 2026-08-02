@@ -1,6 +1,6 @@
 import { NodeFileSystem, NodeHttpServer, NodeRuntime } from "@effect/platform-node"
 import * as ViteDevServer from "@pathable/vite/ViteDevServer"
-import { Console, Effect, FileSystem, Layer } from "effect"
+import { Effect, FileSystem, Layer } from "effect"
 import { HttpRouter, HttpServerRequest, HttpServerResponse } from "effect/unstable/http"
 /**
  * Vite middlewareMode smoke test with Effect HttpServer.
@@ -40,19 +40,14 @@ const HelloRoute = HttpRouter.add(
   Effect.gen(function*() {
     const fs = yield* FileSystem.FileSystem
     const req = yield* HttpServerRequest.HttpServerRequest
-    const { transformIndexHtml, vite } = yield* ViteDevServer.Server
-
-    yield* Console.log("HelloRoute")
+    const { ssrLoadModule, transformIndexHtml } = yield* ViteDevServer.ViteDevServer
 
     const url = req.url ?? "/"
     const templateStr = yield* fs.readFileString(indexHtmlPath)
     const template = yield* transformIndexHtml(url, templateStr)
-    const { render } = yield* Effect.promise(
-      () =>
-        vite.ssrLoadModule("/src/entry-server.tsx") as Promise<{
-          render: (url: string) => { html: string }
-        }>
-    )
+    const { render } = (yield* ssrLoadModule("/src/entry-server.tsx")) as {
+      render: (url: string) => { html: string }
+    }
     const { html: appHtml } = render(url)
     const html = template.replace("<!--app-html-->", appHtml)
 
